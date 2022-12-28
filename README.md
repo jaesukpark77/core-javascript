@@ -8,3 +8,4 @@
 - [X] Strict Mode
 - [X] Global This
 - [X] Data Types
+- [X] Type Conversion
