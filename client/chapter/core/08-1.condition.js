@@ -17,17 +17,21 @@ console.log(answer);
 //       Yes | No5
 
 // 영화 봤니?
-let didWatchMovie;
+let didWatchMovie = "yes";
 
 // 영화 볼거니?
-let goingToWatchMovie;
+let goingToWatchMovie = "no";
 
 
-// if 문(statement)
+if(didWatchMovie.includes("yes")){  // if 문(statement)
+  console.log('그거 재미있더라!!');
+}else if(goingToWatchMovie === "yes"){ // else if 복수 조건 처리
+  console.log('너무 설랜다');
+}else{ // else 절(caluse)
+  console.log("난 별로....");
+}
 
-// else 절(caluse)
-
-// else if 복수 조건 처리
+let movieMessage = didWatchMovie.includes('yes') ? '그거 너무 재밌더라' : goingToWatchMovie === "yes" ? '너무 설랜다' : '난 별로....'
 
 // 조건부 연산자
 
