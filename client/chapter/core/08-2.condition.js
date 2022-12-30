@@ -40,15 +40,15 @@ let userName = prompt('아이디를 입력하세요 : ');
 //   console.log("I don't know you");
 // }
 
-if(userName === 'Admin'){
+if(userName?.toLocaleLowerCase() === 'admin'){
   let userPw = prompt('비밀번호를 입력하시오 : ');
 
-  if(userPw === "TheMaster"){
+  if(userPw?.toLocaleLowerCase() === "themaster"){
     console.log('환영합니다.');
   }else{
     console.log('취소되었습니다.');
   }
-}else if(userName === '' || userName === null){
+}else if(userName.replace(/\s*/g,'') ==='' || userName === null){
   console.log('취소했습니다.');
 }else{
   console.log('인증되지 않은 사용자입니다.');
