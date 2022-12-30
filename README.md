@@ -19,3 +19,4 @@
  - [x] Loop (do ~ while 문) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/09-2.loop.js)
  - [x] Loop (for 문) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/09-3.loop.js)
  - [x] Loop (for ~ in 문) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/09-4.loop.js)
+ - [x] Loop (for ~ of 문) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/09-5.loop.js)
