@@ -2,6 +2,28 @@
 /* For Of Loop                                                            */
 /* ---------------------------------------------------------------------- */
 
+// String, Array, Array-like  =  iterable
+
+const arrayLike = {
+  0: 'body',
+  1: 'head',
+  2: 'div',
+  length: 3,
+  // [Symbol.iterator](){...}
+};
+
+// for(let value of arrayLike){
+// console.log(value);
+// }
+
+let str = '유사배열';
+
+// console.log(str);
+
+for (let value of str) {
+  // console.log(value);
+}
+
 const languages = [
   {
     id: 'ecma-262',
@@ -29,39 +51,27 @@ const languages = [
   },
 ];
 
-
 // for ~ of 문
 // - 특정 조건에서 건너띄기
-/* for(let value of languages){
-  if(value.name === "Java") continue;
-  console.table(value);
-} */
+
+for (let value of languages) {
+  // console.table(value.name);
+
+  if (value.name === 'Java') continue;
+
+  // console.table(value);
+}
+
+for (let value of languages) {
+  // console.table(value.name);
+
+  let name = value.name;
+  if (name.includes('C#')) break;
+
+  // console.table(value);
+}
+
 // - 특정 조건에서 중단하기
-for(let value of languages){
-  let name = value.name
-  if(name.includes('C#')) break;
-  console.table(value);
-}
-
-
-// String, Array, Array-like = iterable
-
-const arrayLike = {
-  0: 'body',
-  1: 'head',
-  2: 'foot',
-}
-
-// for(let value in arrayLike){
-//   console.log(value);
-// }
-
-let str = '유사배열';
-
-/* for(let value of str){
-  console.log(value);
-} */
-
 
 const randomUser = {
   gender: 'female',
@@ -73,7 +83,10 @@ const randomUser = {
     country: 'United Kingdom',
     postcode: 'FO5E 4TN',
     coordinates: { latitude: '-4.3301', longitude: '155.0223' },
-    timezone: { offset: '-4:00', description: 'Atlantic Time (Canada), Caracas, La Paz' },
+    timezone: {
+      offset: '-4:00',
+      description: 'Atlantic Time (Canada), Caracas, La Paz',
+    },
   },
   email: 'carol.may@example.com',
   login: {
@@ -102,3 +115,84 @@ const randomUser = {
 // - for ~ in 문
 // - for ~ of 문
 // - 성능 비교 진단
+
+/* 
+for(let key in randomUser){
+
+  let L1 = randomUser[key];
+  
+  if(({}).hasOwnProperty.call(randomUser,key)){
+    console.log('L1 : ' ,key);
+
+    if(typeof L1 === 'object'){
+
+      for(let key in L1){
+
+        let L2 = L1[key];
+        if(({}).hasOwnProperty.call(randomUser,key)){
+
+          console.log('\t L2 : ' ,key);
+
+          if(typeof L2 === 'object'){
+            
+          }
+        }
+      }
+    }
+
+  }
+  
+}
+ */
+
+/* 
+
+Object.keys
+Object.values
+Object.entries
+
+ */
+
+
+// console.log(Object.values(randomUser));
+/* 
+
+for(let key of Object.keys(randomUser)){
+  console.log(key);
+}
+
+for(let values of Object.values(randomUser)){
+  console.log(values);
+}
+
+ */
+
+
+for(let keyValue of Object.entries(randomUser)){
+  let key = keyValue[0]
+  let value = keyValue[1]
+
+  console.log('L1 : ' ,key);
+
+  if(typeof value === 'object'){
+    for(let keyValue of Object.entries(value)){
+      let key = keyValue[0]
+      let value = keyValue[1]
+
+      console.log('\t L2 : ' ,key);
+    }
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
