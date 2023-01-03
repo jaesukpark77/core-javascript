@@ -21,3 +21,4 @@
  - [x] Loop (for ~ in 문) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/09-4.loop.js)
  - [x] Loop (for ~ of 문) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/09-5.loop.js)
  - [x] Loop (함수) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/10-1.loop.js)
+ - [x] Loop (함수 표현식) [바로가기](https://github.com/jaesukpark77/core-javascript/blob/01.core/client/chapter/core/10-2.loop.js)
