@@ -97,14 +97,18 @@ let pow = (numberic, powerCount) =>{
   console.log(Math.pow(numberic, powerCount));
 } 
 
+let powExpression = (numberic, powerCount) => Array(powerCount).fill(null).reduce((acc) => acc * numberic, 1)
 
 pow(2,53) // 9007199254740992
+powExpression(2,53) // 9007199254740992
 
 
 // repeat(text: string, repeatCount: number): string;
 let repeat = (text, repeatCount) => {
   console.log(text.repeat(repeatCount));
 } 
+
+let repeatExpression = (text, repeatCount) => Array(repeatCount).fill(null).reduce((acc) => acc + text, '')
 
 
 repeat('hello😘',3) // 'hello😘hello😘hello😘'
