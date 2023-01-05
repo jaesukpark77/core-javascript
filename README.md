@@ -44,6 +44,10 @@
  - [x] Object (copy by reference) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/11-2.object.js)
  - [x] Object (Garbage Collection) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/11-3.object.js)
  - [x] method (method) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/11-4.method.js)
+ ---
+ ### Closure
+ - [x] Closure (Closure) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/12-1.closure.js)
+ - [x] Closure (Closure) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/12-2.closure.js)
 
 
 
