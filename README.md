@@ -54,6 +54,9 @@
  ---
  ### Wrapper
  - [x] Optional Chaining (optionalChaining) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/14.wrapper.js)
+ ---
+ ### Number
+ - [x] Number (number) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/15.number.js)
 
 
 
