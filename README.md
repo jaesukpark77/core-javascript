@@ -48,6 +48,10 @@
  ### Closure
  - [x] Closure (Closure) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/12-1.closure.js)
  - [x] Closure (Closure) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/12-2.closure.js)
+ ---
+ ### Optional Chaining
+ - [x] Optional Chaining (optionalChaining) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/13.optionalChaining.js)
+
 
 
 
