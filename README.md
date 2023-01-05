@@ -51,6 +51,9 @@
  ---
  ### Optional Chaining
  - [x] Optional Chaining (optionalChaining) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/13.optionalChaining.js)
+ ---
+ ### Wrapper
+ - [x] Optional Chaining (optionalChaining) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/14.wrapper.js)
 
 
 
