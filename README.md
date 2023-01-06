@@ -66,6 +66,9 @@
  ---
  ### ArrayMeythod
  - [x] ArrayMeythod (ArrayMeythod) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/18.arrayMethod.js)
+ ---
+ ### TryCatch
+ - [x] TryCatch (TryCatch) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/18.arrayMethod.js)
 
 
 
