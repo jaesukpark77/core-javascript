@@ -63,6 +63,9 @@
  ---
  ### Array
  - [x] Array (Array Type) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/17.array.js)
+ ---
+ ### ArrayMeythod
+ - [x] ArrayMeythod (ArrayMeythod) [바로가기](https://github.com/simseonbeom/core-javascript/blob/01.core/client/chapter/core/18.arrayMethod.js)
 
 
 
