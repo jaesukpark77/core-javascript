@@ -1,4 +1,4 @@
-import { diceAnimation, disableElement, enableElement, getNode, getNodes, invisibleElement, visibleElement } from "./lib/index.js";
+import { attr, clearContents ,diceAnimation, disableElement, enableElement, getNode, getNodes, invisibleElement, insertLast, visibleElement } from "./lib/index.js";
 
 /* 
   [주사위 굴리기]
@@ -23,20 +23,37 @@ import { diceAnimation, disableElement, enableElement, getNode, getNodes, invisi
   2. HTML 템플릿 만들기
   3. 템플릿 뿌리기 
 */
+
+/* 
+  [초기화 시키기]
+  1. 
+*/
+
 // 배열의 구조분해 할당
 const [rollingDiceButton, recordButton, resetButton] = getNodes('.buttonGroup > button');
 const recordListWrapper = getNode('.recordListWrapper')
-
 /* const rollingDiceButton = getNode('.buttonGroup > button:nth-child(1)');
 const recordButton = getNode('.buttonGroup > button:nth-child(2)');
 const resetButton = getNode('.buttonGroup > button:nth-child(3)'); */
 
+/* -------------------------------------------------------------------------- */
+/* event */
+/* -------------------------------------------------------------------------- */
 
-
-
+let count = 0;
+let total = 0;
 
 function renderRecordListItem() {
-  
+  let diceValue = Number(attr('#cube', 'data-dice'));
+  let template = /* html */ `
+  <tr>
+    <td>${count++}</td>
+    <td>${diceValue}</td>
+    <td>${total += diceValue}</td>
+  </tr>
+  `
+  insertLast('.recordListWrapper tbody', template);
+  recordListWrapper.scrollTop = recordListWrapper.scrollHeight;
 }
 
 
@@ -66,7 +83,11 @@ const handleRecord = () => {
 }
 
 const handleReset = () => {
+  count = 0;
+  total = 0;
+
   invisibleElement(recordListWrapper);
+  clearContents('.recordListWrapper tbody');
 }
 
 rollingDiceButton.addEventListener('click', handleRollingDice);
