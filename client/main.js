@@ -17,6 +17,12 @@ import { diceAnimation, disableElement, enableElement, getNode, getNodes, invisi
   5. toggleState 유틸 함수 만들기
 */
 
+/* 
+  [레코트 탬플릿 뿌리기]
+  1. renderRecordListItem 함수 만들기
+  2. HTML 템플릿 만들기
+  3. 템플릿 뿌리기 
+*/
 // 배열의 구조분해 할당
 const [rollingDiceButton, recordButton, resetButton] = getNodes('.buttonGroup > button');
 const recordListWrapper = getNode('.recordListWrapper')
@@ -24,6 +30,15 @@ const recordListWrapper = getNode('.recordListWrapper')
 /* const rollingDiceButton = getNode('.buttonGroup > button:nth-child(1)');
 const recordButton = getNode('.buttonGroup > button:nth-child(2)');
 const resetButton = getNode('.buttonGroup > button:nth-child(3)'); */
+
+
+
+
+
+function renderRecordListItem() {
+  
+}
+
 
 // IIFE 패턴
 const handleRollingDice = (() =>{
@@ -47,6 +62,7 @@ const handleRollingDice = (() =>{
 
 const handleRecord = () => {
   visibleElement(recordListWrapper);
+  renderRecordListItem();
 }
 
 const handleReset = () => {
