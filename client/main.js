@@ -26,7 +26,10 @@ import { attr, clearContents ,diceAnimation, disableElement, enableElement, getN
 
 /* 
   [초기화 시키기]
-  1. 
+  1. clearContent 로 정보 지우기
+  2. total, count 초기화 
+  3. 스크롤 밑으로 보내기 
+  4. 메모이제이션 패턴 
 */
 
 // 배열의 구조분해 할당
