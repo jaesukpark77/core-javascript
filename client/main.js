@@ -1,4 +1,4 @@
-import { diceAnimation, disableElement, enableElement, getNode, getNodes } from "./lib/index.js";
+import { diceAnimation, disableElement, enableElement, getNode, getNodes, invisibleElement, visibleElement } from "./lib/index.js";
 
 /* 
   [주사위 굴리기]
@@ -19,13 +19,14 @@ import { diceAnimation, disableElement, enableElement, getNode, getNodes } from 
 
 // 배열의 구조분해 할당
 const [rollingDiceButton, recordButton, resetButton] = getNodes('.buttonGroup > button');
+const recordListWrapper = getNode('.recordListWrapper')
 
 /* const rollingDiceButton = getNode('.buttonGroup > button:nth-child(1)');
 const recordButton = getNode('.buttonGroup > button:nth-child(2)');
 const resetButton = getNode('.buttonGroup > button:nth-child(3)'); */
 
 // IIFE 패턴
-const handlerRollingDice = (() =>{
+const handleRollingDice = (() =>{
   let isRolling = false;
   let stopAnimation;
   
@@ -43,7 +44,18 @@ const handlerRollingDice = (() =>{
     isRolling = !isRolling;
   }
 })();
-rollingDiceButton.addEventListener('click', handlerRollingDice);
+
+const handleRecord = () => {
+  visibleElement(recordListWrapper);
+}
+
+const handleReset = () => {
+  invisibleElement(recordListWrapper);
+}
+
+rollingDiceButton.addEventListener('click', handleRollingDice);
+recordButton.addEventListener('click', handleRecord);
+resetButton.addEventListener('click', handleReset);
 
 
 /* const handlerRollingDice = () =>{

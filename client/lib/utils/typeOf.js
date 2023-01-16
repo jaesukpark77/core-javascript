@@ -4,22 +4,6 @@ export function isNumericString(data){
   return !isNaN(data)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export function isElement(node){
+  return node.nodeType === document.ELEMENT_NODE
+}
