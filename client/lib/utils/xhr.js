@@ -9,7 +9,7 @@
 */
 
 
-function xhrData({
+export function xhrData({
   url='', 
   method='GET', 
   body = null,
@@ -99,7 +99,7 @@ xhrData.delete = (url, body, onSuccess, onFail) => {
   })
 }
 
-xhrData.get(
+/* xhrData.get(
   'https://jsonplaceholder.typicode.com/users',
   (result)=>{
     console.log(result);
@@ -107,9 +107,9 @@ xhrData.get(
   (err) => {
     console.log(err);
   }
-)
+) */
 
-xhrData.post(
+/* xhrData.post(
   'https://jsonplaceholder.typicode.com/users',
   {
     "name": "MESSI",
@@ -140,7 +140,7 @@ xhrData.post(
     console.log(err);
   }
 )
-
+ */
 
 /* xhrData('POST', 'https://jsonplaceholder.typicode.com/users', {
     "name": "MESSI",
