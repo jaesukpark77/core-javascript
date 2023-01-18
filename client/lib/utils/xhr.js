@@ -1,4 +1,6 @@
 import { typeError } from "../error/typeError.js";
+import { getNode } from './../dom/getNode.js';
+import { delayP } from "./delay.js";
 
 /* 
   readyState
@@ -9,7 +11,8 @@ import { typeError } from "../error/typeError.js";
   4 : complete -> 완료
 */
 
-
+const first = getNode('.first')
+const second = getNode('.second')
 
 export function xhrData({
   url='', 
@@ -250,3 +253,47 @@ xhrPromise.delete = (url) =>{
     method:'DELETE'
   })
 }
+
+// async await
+
+// async : 일반 함수를 promise를 반환하는 함수로 만든다.
+// await : 1. promise가 반환하는 result를 가져오기
+//         2. 코드 실행 흐름 제어
+
+/* function delayA() {
+  return new Promise((resolve, reject) => {
+    resolve('완료')
+  })
+} */
+// 같은 역할 -> 갓 async
+async function delayA(){
+  return '완료'
+}
+// let result = delayA().then((res) => {console.log(res);});
+let result = await delayA(); // 값이 담긴다!!!
+// console.log(result);
+
+
+async function 라면끌이기() {
+  try {
+    await delayP()
+    first.style.top = '-100px';
+
+    await delayP()
+    first.style.transform = 'rotate(360deg)';
+
+    await delayP()
+    first.style.top = '0px';
+
+    await delayP()
+    console.log('계란 넣기');
+
+    // throw new Error('계란 껍질이 들어가버렸다!')
+    await delayP()
+    console.log('그릇에담기');
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+라면끌이기()
