@@ -43,18 +43,18 @@ export const jason = async (options={}) => {
   }) */
 
   // console.log(response);
-  return ;
+  return response;
 }
 
 //  jason({})
 
 
 jason.get = (url, options) => {
-  jason({url, ...options})
+  return jason({url, ...options})
 }
 
 jason.post = (url, body, options) => {
-  jason({
+  return jason({
     method: 'POST',
     url,
     body: JSON.stringify(body),
@@ -63,7 +63,7 @@ jason.post = (url, body, options) => {
 }
 
 jason.put = (url, body, options) => {
-  jason({
+  return jason({
     method: 'PUT',
     url,
     body: JSON.stringify(body),
@@ -72,7 +72,7 @@ jason.put = (url, body, options) => {
 }
 
 jason.delet = (url, options) => {
-  jason({
+  return jason({
     method: 'DELETE',
     url,
     ...options
