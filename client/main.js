@@ -1,7 +1,19 @@
 /* global gsap */
 
 
-import { xhrData,insertLast, xhrPromise, delayP, jason, renderUserCard, getNode, changeColor, renderSpinner } from "./lib/index.js";
+import { 
+  xhrData,
+  insertLast, 
+  xhrPromise, 
+  delayP, 
+  jason, 
+  renderUserCard, 
+  getNode as $, 
+  changeColor, 
+  renderSpinner, 
+  renderEmptyCard,
+  attr
+} from "./lib/index.js";
 
 /* xhrData.get(
   'https://jsonplaceholder.typicode.com/users',
@@ -38,7 +50,7 @@ render() */
 // 생성된 카드로 랜더링
 
 
-const userCardContainer = getNode('.user-card-inner');
+const userCardContainer = $('.user-card-inner');
 
 async function rendingUserList() {
   
@@ -46,14 +58,14 @@ async function rendingUserList() {
 
   try{
     await delayP(2000);
-    getNode('.loadingSpinner').remove();
+    $('.loadingSpinner').remove();
   
-    let response = await jason.get('https://jsonplaceholder.typicode.com/users');
+    let response = await jason.get('http://localhost:3000/users');
     let userData = response.data;
     userData.forEach(data => renderUserCard(userCardContainer, data))
   
   
-    console.log(gsap.utils.toArray('.user-card'));
+    // console.log(gsap.utils.toArray('.user-card'));
   
     changeColor('.user-card')
   
@@ -65,10 +77,29 @@ async function rendingUserList() {
     })
 
   }catch(err){
-    console.log(err);
+    renderEmptyCard(userCardContainer)
   }
 }
 
 rendingUserList()
 
+// handler에서는 async / await 사용하지 말자 
+
+function handler(e) {
+  let deletButton = e.target.closest('button');
+  let article = e.target.closest('article');
+  
+  if(!deletButton || !article) return;
+
+  let id = attr(article, 'data-index').slice(5);
+
+  jason.delete(`http://localhost:3000/users/${id}`).then(()=>{
+    userCardContainer.innerHTML = '';
+    rendingUserList(); // repaint 시킨다
+
+  })
+
+}
+
+userCardContainer.addEventListener('click', handler);
 

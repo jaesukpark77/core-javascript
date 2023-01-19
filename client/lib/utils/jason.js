@@ -71,7 +71,7 @@ jason.put = (url, body, options) => {
   })
 }
 
-jason.delet = (url, options) => {
+jason.delete = (url, options) => {
   return jason({
     method: 'DELETE',
     url,
