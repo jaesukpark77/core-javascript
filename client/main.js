@@ -1,3 +1,5 @@
+/* global gsap */
+
 import { clearContents, getInputValue, getNode, getRandom, insertLast, isNumericString, showAlert, copy, addClass, removeClass} from "./lib/index.js";
 import { jujeobData } from "./data/data.js";
 import { refError } from './lib/error/index.js';
@@ -31,7 +33,7 @@ function clickSubmitHandler(e) {
   }
 
   clearContents(resultArea);
-  insertLast(resultArea, pick)
+  insertLast(resultArea, pick);
 }
 
 function clickCopyHandler() {
