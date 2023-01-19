@@ -1,10 +1,10 @@
 
 import { typeError } from './../error/typeError.js';
 import { getNode } from './getNode.js';
-import { isString } from './../utils/typeOf.js';
+// import { isString } from './../utils/typeOf.js';
 
 export function bindEvent(node,type,handler){
-  if(isString(node)){
+  if(typeof node === 'string'){
     node = getNode(node);
   }
 

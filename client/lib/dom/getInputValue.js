@@ -1,4 +1,4 @@
-import { refError } from "../error.js";
+import { refError } from "../error/refError.js";
 import { getNode } from './getNode.js';
 
 export function getInputValue(node){
