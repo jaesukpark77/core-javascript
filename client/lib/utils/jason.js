@@ -1,3 +1,5 @@
+// fetch() 비동기 통신을 위한 것 -> XMLHttpRequest보다 편리해서 많은 사람들이 사용
+
 const defaultOptions = {
   method: 'GET',
   mode: 'cors',
@@ -11,6 +13,19 @@ const defaultOptions = {
   }
 }
 
+/* const jason = () => {
+  fetch(
+    'https://jsonplaceholder.typicode.com/users/1',
+    {
+      method:'GET',
+      headers:{
+        'Content-Type' : 'application/json'
+      },
+      body:null // JSON.stringify() 시켜주어여 한다.
+    }
+  )
+} */
+
 export const jason = async (options={}) => {
 
   const {url, ...restOptions} = {
@@ -20,10 +35,11 @@ export const jason = async (options={}) => {
     headers: {...(defaultOptions.headers ?? {}), ...(options.headers ?? {})}
   }
 
-  let response = await fetch(url, restOptions);
+  let response = await fetch(url, restOptions); // fetch는 url을 제외하고 작동!!!! 그래서 restParameter로 사용
   
 /*   let response = await fetch(
-    'https://jsonplaceholder.typicode.com/users/1',
+    'https://jsonplaceholder.typicode.com/users/1', // url
+    // restOptions
     {
       method:'GET',
       headers:{
@@ -33,9 +49,9 @@ export const jason = async (options={}) => {
   ) */
 
 
-  // 성공 -> response.ok
+  // 성공 확인 -> response.ok (xhr에서는 status로 판)
   if (response.ok) {
-    response.data = await response.json();
+    response.data = await response.json(); // 응답을 JSON 형태로 파싱
   }
 
 /*   response.then((res) => {
@@ -78,3 +94,13 @@ jason.delete = (url, options) => {
     ...options
   })
 }
+
+jason.post('wwww.naver.com', {name:'jason'},
+// ...options로 들어간 후, restOptions으로 받아진다.
+{
+  mode: 'cors',
+  cache: 'no-cache',
+  credential: 'same-origin',
+  headers: {}
+}
+)

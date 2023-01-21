@@ -22,9 +22,10 @@ export function xhrData({
   onFail = null,
   headers = {
     'Content-Type':'application/json',
-    'Access-Control-Allow-Origin' : '*'
+    'Access-Control-Allow-Origin' : '*' // 동일 정책을 위한 코드
   }
-}) {
+} = {}) {
+// 파라미터는 객체만 받아야 함으로 default 값을 객체로 설정한다!!!!
 
   // const {method, url, body} = options
   const xhr = new XMLHttpRequest();
@@ -34,18 +35,21 @@ export function xhrData({
   xhr.open(method, url);
 
   // console.log(Object.entries(headers));
-  
+  // headers 설정하는 방법
+  // 나중에 delete 통신 할 때 오류 발생 가능 -> 그래서 주석 처리
 /*   Object.entries(headers).forEach(([key, value])=>{
     xhr.setRequestHeader(key, value);
   }) */
 
   // 객체 구조 분해 할당  
+  // readyState가 바뀔 때 마다 변경하기 위햐  readystatechange 이벤트 적용!!!
   xhr.addEventListener('readystatechange', () => {
     const {status, readyState, response} = xhr; // 객체 구조 분해 할당
 
     if(status >= 200 && status < 400){
       if (readyState === 4) {
         console.log('통신 성공');
+        // 객체화를 위해 JSON.parse() 이용
         onSuccess(JSON.parse(response));
       }
     }else{
@@ -67,11 +71,12 @@ export function xhrData({
   }
 }) */
 
+// shorthand property
 xhrData.get = (url, onSuccess, onFail) => {
   xhrData({
-    url,
-    onSuccess,
-    onFail
+    url, // url:url
+    onSuccess, // onSuccess : onSuccess
+    onFail // onFail : onFail
   })
 }
 
@@ -95,7 +100,7 @@ xhrData.put = (url, body, onSuccess, onFail) => {
   })
 }
 
-xhrData.delete = (url, body, onSuccess, onFail) => {
+xhrData.delete = (url, onSuccess, onFail) => {
   xhrData({
     method:'DELETE',
     url,
@@ -112,9 +117,9 @@ xhrData.delete = (url, body, onSuccess, onFail) => {
   (err) => {
     console.log(err);
   }
-) */
+)
 
-/* xhrData.post(
+xhrData.post(
   'https://jsonplaceholder.typicode.com/users',
   {
     "name": "MESSI",
@@ -144,8 +149,8 @@ xhrData.delete = (url, body, onSuccess, onFail) => {
   (err) => {
     console.log(err);
   }
-)
- */
+) */
+
 
 /* xhrData('POST', 'https://jsonplaceholder.typicode.com/users', {
     "name": "MESSI",
@@ -187,9 +192,10 @@ const defaultOptions = {
 export function xhrPromise(options = {}) {
   const xhr = new XMLHttpRequest();
 
+  // 한 번에 구조분해할당 때려버리기!!!!
   const {method, url, body, headers} = Object.assign({}, defaultOptions, options);
 
-  if(!url) typeError('서바와 통신할 url 인자는 반드시 필요합니다.')
+  if(!url) typeError('서바와 통신할 url 인자는 반드시 필요합니다.');
   
   xhr.open(method, url);
 
@@ -201,7 +207,7 @@ export function xhrPromise(options = {}) {
 
       if(status >= 200 && status < 400){
         if(readyState === 4){
-          resolve(JSON.parse(response));
+          resolve(JSON.parse(response)); // .then((res) => {res})의 값을 받기 위해서!!!
         }
       }else{
         reject('에러입니다.');
@@ -225,6 +231,8 @@ export function xhrPromise(options = {}) {
 .catch((err)=>{
   console.log(err);
 }) */
+
+// 프로미스 객체가 뛰어 나와야함으로 return을 시킨다.
 xhrPromise.get = (url) =>{
   return xhrPromise({
     url
@@ -253,6 +261,15 @@ xhrPromise.delete = (url) =>{
     method:'DELETE'
   })
 }
+
+/* xhrPromise
+.get('https://jsonplaceholder.typicode.com/users/1') // promise가 나온다.
+.then((res) => {
+  console.log(res);
+})
+.catch((err) => {
+  console.log(err);
+}) */
 
 // async await
 
