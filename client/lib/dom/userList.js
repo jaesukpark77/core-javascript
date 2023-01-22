@@ -1,4 +1,6 @@
 import { insertLast } from './insert.js';
+
+// 객체로 받기 위해 파라미터 또한 객체로 생성
 const createUserCard = ({
   id = '',
   name = '',
